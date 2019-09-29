@@ -6,6 +6,7 @@ import {APP_ROUTES} from './app.routes';
 
 // modulos
 import { PagesModule } from './pages/pages.modulo';
+import { ServiceModule } from './services/service.module';
 
 // temporal
 import { FormsModule } from '@angular/forms';
@@ -27,7 +28,8 @@ import { RegisterComponent } from './login/register.component';
     BrowserModule,
     APP_ROUTES,
     PagesModule,
-    FormsModule
+    FormsModule,
+    ServiceModule
 
   ],
   providers: [],
