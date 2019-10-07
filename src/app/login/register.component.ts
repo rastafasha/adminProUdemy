@@ -3,13 +3,14 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { Usuario } from '../models/usuario.model';
+import { UsuarioService } from '../services/service.index';
 
 import * as _swal from 'sweetalert';
 import { SweetAlert } from 'sweetalert/typings/core';
 
 const swal: SweetAlert = _swal as any;
 
-import { UsuarioService } from '../services/service.index';
+
 
 
 
@@ -33,7 +34,9 @@ export class RegisterComponent implements OnInit {
 
     return( group: FormGroup) => {
 
+      // tslint:disable-next-line: prefer-const
       let pass1 = group.controls[ campo1].value;
+      // tslint:disable-next-line: prefer-const
       let pass2 = group.controls[ campo2].value;
 
       if ( pass1 ===  pass2 ) {
@@ -80,6 +83,7 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
+    // tslint:disable-next-line: prefer-const
     let usuario = new Usuario(
       this.forma.value.nombre,
       this.forma.value.correo,

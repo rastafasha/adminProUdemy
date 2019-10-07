@@ -1,3 +1,11 @@
 .selector {
     cursor: pointer;
 }
+
+.w150 {
+    width: 150px;
+    display: block;
+    margin: auto;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+}

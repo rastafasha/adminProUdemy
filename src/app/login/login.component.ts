@@ -26,11 +26,12 @@ export class LoginComponent implements OnInit {
 
     ngOnInit() {
       init_plugins();
-        this.attachSignin();
+      this.attachSignin();
       }
       googleInit() {
         return new Promise((resolve, reject) => {
           gapi.load('auth2', () => {
+            // tslint:disable-next-line: prefer-const
             let auth2 = gapi.auth2.init({
               client_id: '291137676127-svvuuca518djs47q2v78se9q6iggi4nq.apps.googleusercontent.com',
               cookiepolicy: 'single_host_origin',
@@ -42,13 +43,13 @@ export class LoginComponent implements OnInit {
       }
       attachSignin() {
           this.googleInit().then( (auth2: any) => {
+            // tslint:disable-next-line: prefer-const
             let element = document.getElementById('btnGoogle');
             auth2.attachClickHandler( element, {}, (googleUser) => {
-
+              // tslint:disable-next-line: prefer-const
               let token = googleUser.getAuthResponse().id_token;
-
-            this.usuarioService.loginGoogle(token)
-            .subscribe(() => window.location.href =  '#/dashboard');
+              this.usuarioService.loginGoogle(token)
+              .subscribe(() => window.location.href =  '#/dashboard');
 
         });
       });
@@ -59,7 +60,7 @@ export class LoginComponent implements OnInit {
     if ( forma.invalid ) {
       return;
     }
-
+    // tslint:disable-next-line: prefer-const
     let usuario = new Usuario(null, forma.value.email, forma.value.password);
 
     this.usuarioService.login(usuario, forma.value.recuerdame)

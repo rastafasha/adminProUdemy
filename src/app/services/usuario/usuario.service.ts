@@ -3,10 +3,13 @@ import { Usuario } from '../../models/usuario.model';
 import { HttpClient } from '@angular/common/http';
 import { URL_SERVICIOS } from '../../config/config';
 import 'rxjs/add/operator/map';
-
-import * as _swal from 'sweetalert';
-import { SweetAlert } from 'sweetalert/typings/core';
 import { Router } from '@angular/router';
+import { SubirArchivoService } from '../subirarchivo/subirarchivo.service';
+
+import _swal from 'sweetalert';
+import { SweetAlert } from 'sweetalert/typings/core';
+
+
 
 const swal: SweetAlert = _swal as any;
 
@@ -21,7 +24,8 @@ export class UsuarioService {
 
   constructor(
     public http: HttpClient,
-    public router: Router
+    public router: Router,
+    public subirArchivoService: SubirArchivoService
   ) {
     this.cargarStorage();
    }
@@ -49,7 +53,27 @@ export class UsuarioService {
     this.usuario = usuario;
     this.token = token;
 
-    
+   }
+
+   actualizarUsuario( usuario: Usuario) {
+
+      let url = URL_SERVICIOS + '/usuario/' + usuario._id;
+      url += '?token=' + this.token;
+
+      // console.log(url);
+
+      return this.http.put(url, usuario)
+        .map( (resp: any) => {
+          // this.usuario = resp.usuario;
+          // tslint:disable-next-line:prefer-const
+          let usuarioDB: Usuario = resp.usuario;
+
+          this.guardarStorage( usuarioDB._id, this.token, usuarioDB );
+          swal('Usuario Actualizado', usuario.nombre, 'success');
+
+          return true;
+        });
+
    }
 
    logout() {
@@ -103,6 +127,19 @@ export class UsuarioService {
         swal('Usuario creado', usuario.email, 'success');
         return resp.usuario;
 
+      });
+
+  }
+
+  cambiarImagen( archivo: File, id: string) {
+    this.subirArchivoService.subirArchivo( archivo, 'usuarios', id)
+      .then((resp: any) => {
+        this.usuario.img = resp.usuario.img;
+        swal('Imagen Actualizada', this.usuario.nombre, 'success');
+        this.guardarStorage(id, this.token, this.usuario);
+      })
+      .catch( resp => {
+        console.log(resp);
       });
 
   }
