@@ -3,6 +3,10 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
 import { SidebarService, SettingsService, SharedService, UsuarioService, LoginGuardGuard, SubirArchivoService} from './service.index';
+<<<<<<< HEAD
+=======
+import { ModalUploadService } from '../components/modal-upload/modal-upload.service';
+>>>>>>> arrelgo de sweetalert-mantenimiento usuarios
 
 
 @NgModule({
@@ -16,7 +20,12 @@ import { SidebarService, SettingsService, SharedService, UsuarioService, LoginGu
     SharedService,
     UsuarioService,
     LoginGuardGuard,
+<<<<<<< HEAD
     SubirArchivoService
+=======
+    SubirArchivoService,
+    ModalUploadService
+>>>>>>> arrelgo de sweetalert-mantenimiento usuarios
   ],
   declarations: []
 

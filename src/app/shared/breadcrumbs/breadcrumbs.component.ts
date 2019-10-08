@@ -16,7 +16,11 @@ export class BreadcrumbsComponent implements OnInit {
 
     this.getDataRoute()
     .subscribe( data => {
+<<<<<<< HEAD
       console.log(data);
+=======
+      // console.log(data);
+>>>>>>> arrelgo de sweetalert-mantenimiento usuarios
       this.titulo = data.titulo;
       this.title.setTitle( this.titulo);
 

@@ -14,6 +14,18 @@ export class SidebarService {
         {titulo: 'Promesas', url: '/promesas'},
         {titulo: 'Rxjs', url: '/rxjs'}
       ]
+<<<<<<< HEAD
+=======
+    },
+    {
+      titulo: 'Mantenimiento',
+      icono: 'mdi mdi-folder-lock-open',
+      submenu: [
+        {titulo: 'Usuarios', url: '/usuarios'},
+        {titulo: 'Hospitales', url: '/hospitales'},
+        {titulo: 'Medicos', url: '/medicos'}
+      ]
+>>>>>>> arrelgo de sweetalert-mantenimiento usuarios
     }
   ];
 

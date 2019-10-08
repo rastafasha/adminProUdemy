@@ -17,15 +17,22 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register.component';
 
 
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> arrelgo de sweetalert-mantenimiento usuarios
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+<<<<<<< HEAD
     RegisterComponent,
+=======
+    RegisterComponent
+>>>>>>> arrelgo de sweetalert-mantenimiento usuarios
   ],
   imports: [
     BrowserModule,

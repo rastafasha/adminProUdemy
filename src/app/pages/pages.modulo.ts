@@ -6,7 +6,10 @@ import { SharedModule } from '../shared/shared.modulo';
 
 import { PAGES_ROUTES } from './pages.routes';
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> arrelgo de sweetalert-mantenimiento usuarios
 import { PagesComponent } from './pages.component';
 
 import { ChartsModule } from 'ng2-charts';
@@ -16,7 +19,12 @@ import { ProgressComponent } from './progress/progress.component';
 import { Graficas1Component } from './graficas1/graficas1.component';
 
 import { ProfileComponent } from './profile/profile.component';
+<<<<<<< HEAD
 
+=======
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { ModalUploadComponent } from '../components/modal-upload/modal-upload.component';
+>>>>>>> arrelgo de sweetalert-mantenimiento usuarios
 
 // temporal
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
@@ -30,6 +38,10 @@ import { RxjsComponent } from './rxjs/rxjs.component';
 import { PipesModule } from '../pipes/pipes.module';
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> arrelgo de sweetalert-mantenimiento usuarios
 @NgModule({
     declarations: [
         PagesComponent,
@@ -41,7 +53,13 @@ import { PipesModule } from '../pipes/pipes.module';
         AccountSettingsComponent,
         PromesasComponent,
         RxjsComponent,
+<<<<<<< HEAD
         ProfileComponent
+=======
+        ProfileComponent,
+        UsuariosComponent,
+        ModalUploadComponent
+>>>>>>> arrelgo de sweetalert-mantenimiento usuarios
     ],
     exports: [
         PagesComponent,

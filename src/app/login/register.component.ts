@@ -4,11 +4,15 @@ import { Router } from '@angular/router';
 
 import { Usuario } from '../models/usuario.model';
 import { UsuarioService } from '../services/service.index';
+<<<<<<< HEAD
 
 import * as _swal from 'sweetalert';
 import { SweetAlert } from 'sweetalert/typings/core';
 
 const swal: SweetAlert = _swal as any;
+=======
+import Swal from 'sweetalert2';
+>>>>>>> arrelgo de sweetalert-mantenimiento usuarios
 
 
 
@@ -79,7 +83,17 @@ export class RegisterComponent implements OnInit {
     }
 
     if ( !this.forma.value.condiciones) {
+<<<<<<< HEAD
       swal('Importante', 'Debe aceptar las condiciones!', 'warning');
+=======
+      // swal('Importante', 'Debe aceptar las condiciones!', 'warning');
+      Swal.fire({
+        title: 'Importante',
+        text: 'Debe aceptar las condiciones!',
+        type: 'warning',
+        confirmButtonText: 'ok'
+      });
+>>>>>>> arrelgo de sweetalert-mantenimiento usuarios
       return;
     }
 

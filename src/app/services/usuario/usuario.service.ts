@@ -6,12 +6,16 @@ import 'rxjs/add/operator/map';
 import { Router } from '@angular/router';
 import { SubirArchivoService } from '../subirarchivo/subirarchivo.service';
 
+<<<<<<< HEAD
 import _swal from 'sweetalert';
 import { SweetAlert } from 'sweetalert/typings/core';
 
 
 
 const swal: SweetAlert = _swal as any;
+=======
+import Swal from 'sweetalert2';
+>>>>>>> arrelgo de sweetalert-mantenimiento usuarios
 
 
 @Injectable({
@@ -64,12 +68,29 @@ export class UsuarioService {
 
       return this.http.put(url, usuario)
         .map( (resp: any) => {
+<<<<<<< HEAD
           // this.usuario = resp.usuario;
           // tslint:disable-next-line:prefer-const
           let usuarioDB: Usuario = resp.usuario;
 
           this.guardarStorage( usuarioDB._id, this.token, usuarioDB );
           swal('Usuario Actualizado', usuario.nombre, 'success');
+=======
+          
+          if ( usuario._id === this.usuario._id) {
+            
+            let usuarioDB: Usuario = resp.usuario;
+            this.guardarStorage( usuarioDB._id, this.token, usuarioDB );
+            
+          }
+
+          Swal.fire({
+            title: 'Usuario Actualizado',
+            text: usuario.nombre,
+            type: 'success',
+            confirmButtonText: 'ok'
+          });
+>>>>>>> arrelgo de sweetalert-mantenimiento usuarios
 
           return true;
         });
@@ -124,7 +145,17 @@ export class UsuarioService {
     return this.http.post( url, usuario )
       .map( (resp: any) => {
 
+<<<<<<< HEAD
         swal('Usuario creado', usuario.email, 'success');
+=======
+        // swal('Usuario creado', usuario.email, 'success');
+        Swal.fire({
+          title: 'Usuario Creado',
+          text: usuario.email,
+          type: 'success',
+          confirmButtonText: 'ok'
+        });
+>>>>>>> arrelgo de sweetalert-mantenimiento usuarios
         return resp.usuario;
 
       });
@@ -135,7 +166,17 @@ export class UsuarioService {
     this.subirArchivoService.subirArchivo( archivo, 'usuarios', id)
       .then((resp: any) => {
         this.usuario.img = resp.usuario.img;
+<<<<<<< HEAD
         swal('Imagen Actualizada', this.usuario.nombre, 'success');
+=======
+        // swal('Imagen Actualizada', this.usuario.nombre, 'success');
+        Swal.fire({
+          title: 'Imagen Actualizada',
+          text: this.usuario.nombre,
+          type: 'success',
+          confirmButtonText: 'ok'
+        });
+>>>>>>> arrelgo de sweetalert-mantenimiento usuarios
         this.guardarStorage(id, this.token, this.usuario);
       })
       .catch( resp => {
@@ -144,5 +185,41 @@ export class UsuarioService {
 
   }
 
+<<<<<<< HEAD
+=======
+  cargarUsuarios( desde: number = 0 ) {
+  
+    let url = URL_SERVICIOS + '/usuario?desde=' + desde;
+    return this.http.get( url );
+
+  }
+
+  buscarUsuario( termino: string) {
+    
+    let url = URL_SERVICIOS + '/busqueda/coleccion/usuarios/' + termino;
+    return this.http.get( url )
+      .map((resp: any) => resp.usuarios );
+
+  }
+  
+  borrarUsuario( id: string) {
+    
+    let url = URL_SERVICIOS + '/usuario/' + id;
+    url += '?token=' + this.token;
+    
+    return this.http.delete( url )
+      .map( resp => {
+        Swal.fire({
+          title: 'Usuario Eliminado',
+          text: 'El usuario ha sido eliminado correctamente',
+          type: 'success',
+          confirmButtonText: 'ok'
+        });
+        return true;
+      });
+
+  }
+
+>>>>>>> arrelgo de sweetalert-mantenimiento usuarios
 
 }
