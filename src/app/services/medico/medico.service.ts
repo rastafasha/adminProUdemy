@@ -84,6 +84,7 @@ export class MedicoService {
           })
 
           return resp.medico;
+          
 
         })
       
