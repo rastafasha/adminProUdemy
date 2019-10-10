@@ -6,7 +6,7 @@ import { ModalUploadService } from '../components/modal-upload/modal-upload.serv
 
 import { SidebarService, SettingsService, SharedService,
   UsuarioService, SubirArchivoService, HospitalService, MedicoService, 
-  LoginGuardGuard, AdminGuard} from './service.index';
+  LoginGuardGuard, AdminGuard, VerificaTokenGuard} from './service.index';
   
 
 
@@ -26,7 +26,9 @@ import { SidebarService, SettingsService, SharedService,
     HospitalService,
     MedicoService,
     LoginGuardGuard,
-    AdminGuard
+    AdminGuard,
+    VerificaTokenGuard
+  
   ],
   declarations: []
 
